@@ -20,8 +20,11 @@ public class Main {
         //      root.deleteChild(child3);
         //      root.printCurrentNode();
         //    new XmlBuilder().from(root).setCharSet("utf-8").setFileName("my").buildXml();
-        XmlParser xmlParser = new XmlParser();
-        Node rootFromXml = xmlParser.readFromXml("my.xml");
-        rootFromXml.printCurrentNode();
+        Node nodeFromXml = Node.addFromXml("my.xml");
+        nodeFromXml.printCurrentNode();
+
+        Node rootNode=new Node("root");
+        rootNode.addChildFromXml("my.xml");
+        rootNode.printCurrentNode();
     }
 }

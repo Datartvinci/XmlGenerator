@@ -128,7 +128,15 @@ public class Node {
                 .buildXml());
 
     }
-    public void addFromXml(){
-        
+    public static  Node addFromXml(String fileName){
+        return new XmlParser().readFromXml(fileName);
+    }
+    public void addChildFromXml(String fileName){
+        Node child=new XmlParser().readFromXml(fileName);
+        if(child.getTag()==getTag())return;
+        List<Node>list=child.getNodesByTag(getTag());
+        if(list==null||list.isEmpty()){
+            appendChild(child);
+        }
     }
 }
